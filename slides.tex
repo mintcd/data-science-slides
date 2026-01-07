@@ -12,6 +12,7 @@
 % \usepackage{subcaption}
 
 \usepackage[lined,commentsnumbered]{algorithm2e}
+\usepackage{etoolbox}
 \beamertemplatenavigationsymbolsempty
 % \useinnertheme{circles}
 %\useoutertheme{split}
@@ -109,24 +110,73 @@
 
 \input{commands.tex}
 
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\newtcolorbox{mydefinition}[1][]{%
+  enhanced,
+  title={Definition\ifstrempty{#1}{}{ (#1)}},
+  % attach boxed title to top left={yshifttext=-1mm},
+  colback=white,
+  colframe=gustave!50!black,
+  fonttitle=\bfseries,
+  boxed title style={
+    size=small,
+    colback=gustave!50!black,
+    colframe=gustave!50!black,
+  },
+}
+
+\newtcolorbox{mytheorem}[1][]{%
+  enhanced,
+  title={Theorem\ifstrempty{#1}{}{ (#1)}},
+  % attach boxed title to top left={yshifttext=-1mm},
+  colback=white,
+  colframe=gustave!50!black,
+  fonttitle=\bfseries,
+  boxed title style={
+    size=small,
+    colback=gustave!50!black,
+    colframe=gustave!50!black,
+  },
+}
+
+\newtcolorbox{myproposition}[1][]{%
+  enhanced,
+  title={Proposition\ifstrempty{#1}{}{ (#1)}},
+  % attach boxed title to top left={yshifttext=-1mm},
+  colback=white,
+  colframe=gustave!50!black,
+  fonttitle=\bfseries,
+  boxed title style={
+    size=small,
+    colback=gustave!50!black,
+    colframe=gustave!50!black,
+  },
+}
+
+
 % DOCUMENT
 \begin{document}
 \date{}
 \begin{frame}[noframenumbering,plain]
-	\titlepage
+  \titlepage
 \end{frame}
 
 \begin{frame}{Outline}
-	\tableofcontents
+  \tableofcontents
 \end{frame}
 
 \input{sections/introduction.tex}
 \input{sections/manifolds.tex}
+\input{sections/gradient.tex}
+\input{sections/gradient-descent.tex}
 
-\begin{frame}{}
-	\begin{center}
-		\Huge\textbf{Thank you for listening !}
-	\end{center}
+\begin{frame}[noframenumbering,plain]
+  \begin{center}
+    \Huge\textbf{Thank you for listening !}
+  \end{center}
 \end{frame}
+
+\input{sections/appendix.tex}
 % \printbsibliography
 \end{document}

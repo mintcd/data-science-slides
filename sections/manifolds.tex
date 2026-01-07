@@ -1,25 +1,71 @@
 \section{Embedded Submanifolds of a Linear Space}
 
 
-\begin{frame}{Embedded Submanifolds of a Linear Space}
+\begin{frame}[allowframebreaks]{Embedded Submanifolds of a Linear Space}
 
   A subset $\M$ of $\RR^d$ is an \textcolor{gustave}{embedded manifold of dimension $n$}  if for each point $x\in\M$, there exists a neighborhood in $\M$ of $x$ (i.e. $\M\cap U$ for some open set $U\subset \RR^d$ containing $x$) that is \textcolor{gray}{approximate} to an open subset of $\RR^n$.
 
-  % We need two figures here, a manifold and a non-manifold. See the Boy's surface https://www.geogebra.org/classic/gjmghdym.
+  \textcolor{red}{We need two figures here, a manifold and a non-manifold. See the Boy's surface https://www.geogebra.org/classic/gjmghdym.}
 
-  % Intuition for why \RR^{d-n}: because we can think of the manifold as being defined by d-n constraints in \RR^d.
+  \textcolor{red}{
+    Intuition for why $\RR^{d-n}$: because we can think of the manifold as being defined by d-n constraints in $\RR^d$.
+  }
 
   We consider \textcolor{gustave}{smooth submanifolds}: for each $x\in\M$, there exists an open set $U\subset \RR^d$ containing $x$ and a smooth map $h: U \to \RR^{d-n}$ such that $M\cap U = h^{-1}(\{0\})$.
 
   By being approximate to $\RR^n$, we mean that for any direction $v\in\RR^d$ that is a \textcolor{gray}{tangent vector} to $\M$ at $x$, we have
   $$h(x+tv) = o(t).$$
 
-  \begin{definition}{Tangent space}
-  \end{definition}
+  We rely on curves to define tangent vectors (and also later definitions).
+
+  \begin{mydefinition}[Tangent space]
+  The tangent space $T_x\M$ at a point $x\in\M$ is the set of all tangent vectors to $\M$ at $x$ i.e.
+  $$T_x\M = \{\gamma'(0) \,|\, \gamma:(-\epsilon,\epsilon) \to \M \in \C^\infty(-\epsilon,\epsilon), \gamma(0) = x \}.$$
+  \end{mydefinition}
 
   Now we can use Taylor expansion to write
   $$h(x+tv) = h(x) + t \mathrm{D}h(x)[v] + o(t) = t \mathrm{D}h(x)[v] + o(t).$$
-  where $\mathrm{D}h(x)$ is the \textcolor{gustave}{differential} of $h$ at $x$.
+
+  \framebreak
+
+  \begin{myproposition}
+    For every $x\in \M$, we have $$T_x\M \subseteq \text{ker}(\mathrm{D}h(x)).$$
+  \end{myproposition}
+
+  \begin{proof}
+    Let $v\in T_x\M$, then there is a smooth $c$ such that $\gamma(0) = x$ and $\gamma'(0) = v$. Consider the function $g(t) = h(\gamma(t))$. Since $\gamma(t)\in \M$ for all $t$, we have $g(t) = 0$ for all $t$. Thus, $g'(0) = 0$. By chain rule,
+    $$g'(0) = \mathrm{D}h(\gamma(0))[\gamma'(0)] = \mathrm{D}h(x)[v] = 0.$$
+    Hence, $v\in \text{ker}(\mathrm{D}h(x))$.
+  \end{proof}
+
+  \framebreak
+
+  By the rank-nullity theorem, we have $\text{rank}(\mathrm{D}h(x)) \leq d-n$ . Thus,
+  $$\text{dim}(\text{ker}(\mathrm{D}h(x))) = d - \text{rank}(\mathrm{D}h(x)) \geq n.$$
+  On the other hand, $\text{dim}(T_x\M) \leq n$.
+
+  Therefore, if there is $x\in\M$ such that $\text{rank}(\mathrm{D}h(x)) < d-n$, then
+
+  $$T_x\M \subsetneq \text{ker}(\mathrm{D}h(x)).$$
+
+  That means there are vectors in $\text{ker}(\mathrm{D}h(x))$ that are not tangent to $\M$ at $x$ but can be used to approximate $\M$ near $x$ (we want to avoid this situation).
+
+  \textcolor{red}{Add an example}
+
+  \framebreak
+  \begin{mydefinition}
+  A subset $\M$ of $\RR^d$ is an embedded submanifold of dimension $n$ if for each $x\in\M$, there exists an open set $U\subset \RR^d$ containing $x$ and a smooth map $h: U \to \RR^{d-n}$ such that $$M\cap U = h^{-1}(\{0\}) \text{ and } \forall x\in \M\cap U, \rank\,\mathrm{D}h(x) = d-n.$$
+  \end{mydefinition}
+
+  \begin{myproposition}
+    Using the convention that $\RR^0 = \{0\}$, every open subset of $\RR^d$ is a $d$-dimensional embedded submanifold of $\RR^d$.
+  \end{myproposition}
+
+  \textcolor{red}{We may add the theorem that this definition is equivalent to the diffeomorphism definition.}
+\end{frame}
 
 
+
+\begin{frame}{Examples of Optimization on Manifolds}
+  \textcolor{red}{I will take two from the book.}
 \end{frame}
