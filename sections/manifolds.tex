@@ -1,0 +1,25 @@
+\section{Embedded Submanifolds of a Linear Space}
+
+
+\begin{frame}{Embedded Submanifolds of a Linear Space}
+
+  A subset $\M$ of $\RR^d$ is an \textcolor{gustave}{embedded manifold of dimension $n$}  if for each point $x\in\M$, there exists a neighborhood in $\M$ of $x$ (i.e. $\M\cap U$ for some open set $U\subset \RR^d$ containing $x$) that is \textcolor{gray}{approximate} to an open subset of $\RR^n$.
+
+  % We need two figures here, a manifold and a non-manifold. See the Boy's surface https://www.geogebra.org/classic/gjmghdym.
+
+  % Intuition for why \RR^{d-n}: because we can think of the manifold as being defined by d-n constraints in \RR^d.
+
+  We consider \textcolor{gustave}{smooth submanifolds}: for each $x\in\M$, there exists an open set $U\subset \RR^d$ containing $x$ and a smooth map $h: U \to \RR^{d-n}$ such that $M\cap U = h^{-1}(\{0\})$.
+
+  By being approximate to $\RR^n$, we mean that for any direction $v\in\RR^d$ that is a \textcolor{gray}{tangent vector} to $\M$ at $x$, we have
+  $$h(x+tv) = o(t).$$
+
+  \begin{definition}{Tangent space}
+  \end{definition}
+
+  Now we can use Taylor expansion to write
+  $$h(x+tv) = h(x) + t \mathrm{D}h(x)[v] + o(t) = t \mathrm{D}h(x)[v] + o(t).$$
+  where $\mathrm{D}h(x)$ is the \textcolor{gustave}{differential} of $h$ at $x$.
+
+
+\end{frame}
