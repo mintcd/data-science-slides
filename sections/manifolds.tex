@@ -5,11 +5,27 @@
 
   A subset $\M$ of $\RR^d$ is an \textcolor{gustave}{embedded manifold of dimension $n$}  if for each point $x\in\M$, there exists a neighborhood in $\M$ of $x$ (i.e. $\M\cap U$ for some open set $U\subset \RR^d$ containing $x$) that is \textcolor{gray}{approximate} to an open subset of $\RR^n$.
 
-  \textcolor{red}{We need two figures here, a manifold and a non-manifold. See the Boy's surface https://www.geogebra.org/classic/gjmghdym.}
+  \begin{figure}
+    \centering
+    % https://www.geogebra.org/classic/r7dwyts9
+    \begin{minipage}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{img/sphere.png}
+      \caption*{A sphere is a manifold}
+    \end{minipage}
+    \hspace{0.5cm}
+    % https://www.geogebra.org/classic/gjmghdym
+    \begin{minipage}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{img/cone.png}
+      \caption*{A cone is not a manifold because every neighborhood of the tip (in red) cannot be approximated by a plane}
+    \end{minipage}
+  \end{figure}
 
-  \textcolor{red}{
-    Intuition for why $\RR^{d-n}$: because we can think of the manifold as being defined by d-n constraints in $\RR^d$.
-  }
+
+  % \textcolor{red}{
+  %   Intuition for why $\RR^{d-n}$: because we can think of the manifold as being defined by d-n constraints in $\RR^d$.
+  % }
 
   We consider \textcolor{gustave}{smooth submanifolds}: for each $x\in\M$, there exists an open set $U\subset \RR^d$ containing $x$ and a smooth map $h: U \to \RR^{d-n}$ such that $M\cap U = h^{-1}(\{0\})$.
 
@@ -26,14 +42,12 @@
   Now we can use Taylor expansion to write
   $$h(x+tv) = h(x) + t \mathrm{D}h(x)[v] + o(t) = t \mathrm{D}h(x)[v] + o(t).$$
 
-  \framebreak
-
   \begin{myproposition}
     For every $x\in \M$, we have $$T_x\M \subseteq \text{ker}(\mathrm{D}h(x)).$$
   \end{myproposition}
 
   \begin{proof}
-    Let $v\in T_x\M$, then there is a smooth $c$ such that $\gamma(0) = x$ and $\gamma'(0) = v$. Consider the function $g(t) = h(\gamma(t))$. Since $\gamma(t)\in \M$ for all $t$, we have $g(t) = 0$ for all $t$. Thus, $g'(0) = 0$. By chain rule,
+    Let $v\in T_x\M$, then there is a smooth $\gamma$ such that $\gamma(0) = x$ and $\gamma'(0) = v$. Consider $g(t) = h(\gamma(t))$. Since $\gamma(t)\in \M$ for all $t$, we have $g(t) = 0$ for all $t$. Thus, $g'(0) = 0$. By chain rule,
     $$g'(0) = \mathrm{D}h(\gamma(0))[\gamma'(0)] = \mathrm{D}h(x)[v] = 0.$$
     Hence, $v\in \text{ker}(\mathrm{D}h(x))$.
   \end{proof}
@@ -49,6 +63,8 @@
   $$T_x\M \subsetneq \text{ker}(\mathrm{D}h(x)).$$
 
   That means there are vectors in $\text{ker}(\mathrm{D}h(x))$ that are not tangent to $\M$ at $x$ but can be used to approximate $\M$ near $x$ (we want to avoid this situation).
+
+  For example, define cone shown previously by $h(x,y,z) = z^2 - x^2 - y^2$. At the tip $(0,0,0)$, we have $\mathrm{D}h(0,0,0) = [0 \; 0 \; 0]$ and $\ker \mathrm{D}h(0,0,0) = \RR^3$. So any vector in $\RR^3$ can be used to approximate the cone near the tip. But $v = (0,0,1)$ is not a tangent vector.
 
   \textcolor{red}{Add an example}
 
