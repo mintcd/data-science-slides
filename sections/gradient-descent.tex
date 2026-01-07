@@ -16,9 +16,9 @@
 
 \end{frame}
 
-\begin{frame}{Gradient Descent}
+\begin{frame}{Riemannian Gradient Descent}
   The framework is the iteration
-  $$x^{(k+1)} = x^{(k)} - \alpha^{(k)}\grad f(x^{(k)}),$$
+  $$x^{(k+1)} = R_{x^{(k)}}\left(-\alpha^{(k)}\grad f(x^{(k)})\right),$$
   where $x^{(0)}$ is initialized in $\M$ and $\alpha^{(k)} > 0$ is the step size.
 
   \textcolor{red}{I want to compare with projection method.}

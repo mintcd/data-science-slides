@@ -33,22 +33,27 @@
   Here we need to check that $Df(x)[v]$ does not depend on the choice of $\gamma$. Details are given in the appendix.
 \end{frame}
 
-\begin{frame}{Gradient on Manifolds}
-  We need conditions under which $\grad f$ is well-defined by the usual
+\begin{frame}[allowframebreaks]{Gradient on Manifolds}
+  We need conditions under which $\grad f(x)$ is well-defined by the usual
   $$\langle \grad f(x), v \rangle_x = \mathrm{D}f(x)[v], \quad \forall v\in T_x\M.$$
 
   \begin{mydefinition}[Riemannian metric]
-  A Riemannian metric is an inner product $\langle \cdot, \cdot\rangle_x: T_x\M \times T_x\M \to \RR$ that varies smoothly with $x$ i.e. for any smooth vector fields $X,Y:\M \to T\M$, the function $x\mapsto \langle X(x), Y(x)\rangle_x$ is smooth.
+  A Riemannian metric is an inner product $\langle \cdot, \cdot\rangle_x: T_x\M \times T_x\M \to \RR$ that varies smoothly with $x$ i.e. for any smooth vector fields $X,Y$ on $\M$, the function $x\mapsto \langle X(x), Y(x)\rangle_x$ is smooth.
   \end{mydefinition}
 
-  \begin{mydefinition}[Gradient]
+  \framebreak
 
+  Considering every $x\in \M$, we need the notion of tangent bundle
+  $$T\M = \{(x,v) \,|\, x\in\M \text{ and } v\in T_x\M\}.$$
+
+  \begin{mydefinition}[Gradient]
+  Let $f:\M\to \RR$ be smooth on a Riemannian manifold $\M$. The gradient $\grad f$ is a vector field such that
+  $$\forall (x,v)\in T\M, \langle \grad f(x), v \rangle_x = \mathrm{D}f(x)[v].$$
   \end{mydefinition}
 \end{frame}
 
 \begin{frame}{Computation of Gradient - Retraction}
 
-  Let $T\M = \{(x,v) \,|\, x\in\M \text{ and } v\in T_x\M\}$, called the tangent bundle.
 
   \begin{mydefinition}[Retraction]
   A retraction is a smooth map $R: T\M \to \M: (x,v)\mapsto R_x(v)$ such that each curve $c(t)=R_x(tv)$ satisfies $c(0) = x$ and $c'(0) = v$.
