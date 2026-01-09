@@ -112,9 +112,13 @@
 
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{breakable,skins}
+
+% Shared counter for all theorem-like environments
+\newcounter{mytheoremcounter}
+
 \newtcolorbox{mydefinition}[1][]{%
   enhanced,
-  title={Definition\ifstrempty{#1}{}{ (#1)}},
+  title={Definition \stepcounter{mytheoremcounter}\themytheoremcounter\ifstrempty{#1}{}{ (#1)}},
   % attach boxed title to top left={yshifttext=-1mm},
   colback=white,
   colframe=gustave!50!black,
@@ -128,7 +132,7 @@
 
 \newtcolorbox{mytheorem}[1][]{%
   enhanced,
-  title={Theorem\ifstrempty{#1}{}{ (#1)}},
+  title={Theorem \stepcounter{mytheoremcounter}\themytheoremcounter\ifstrempty{#1}{}{ (#1)}},
   % attach boxed title to top left={yshifttext=-1mm},
   colback=white,
   colframe=gustave!50!black,
@@ -142,7 +146,7 @@
 
 \newtcolorbox{myproposition}[1][]{%
   enhanced,
-  title={Proposition\ifstrempty{#1}{}{ (#1)}},
+  title={Proposition \stepcounter{mytheoremcounter}\themytheoremcounter\ifstrempty{#1}{}{ (#1)}},
   % attach boxed title to top left={yshifttext=-1mm},
   colback=white,
   colframe=gustave!50!black,
