@@ -54,14 +54,12 @@
 
   \framebreak
 
-  By the rank-nullity theorem, we have $\text{rank}(\mathrm{D}h(x)) \leq d-n$ . Thus,
+  By the rank-nullity theorem, we have $\text{rank}(\mathrm{D}h(x)) \leq d-n$. Thus,
   $$\text{dim}(\text{ker}(\mathrm{D}h(x))) = d - \text{rank}(\mathrm{D}h(x)) \geq n.$$
   On the other hand, $\text{dim}(T_x\M) \leq n$.
 
   Therefore, if there is $x\in\M$ such that $\text{rank}(\mathrm{D}h(x)) < d-n$, then
-
   $$T_x\M \subsetneq \text{ker}(\mathrm{D}h(x)).$$
-
   That means there are vectors in $\text{ker}(\mathrm{D}h(x))$ that are not tangent to $\M$ at $x$ but can be used to approximate $\M$ near $x$ (we want to avoid this situation).
 
   For example, define cone shown previously by $h(x,y,z) = z^2 - x^2 - y^2$. At the tip $(0,0,0)$, we have $\mathrm{D}h(0,0,0) = [0 \; 0 \; 0]$ and $\ker \mathrm{D}h(0,0,0) = \RR^3$. So any vector in $\RR^3$ can be used to approximate the cone near the tip. But $v = (0,0,1)$ is not a tangent vector.
@@ -79,8 +77,64 @@
   \textcolor{red}{We may add the theorem that this definition is equivalent to the diffeomorphism definition.}
 \end{frame}
 
-
-
-\begin{frame}{Examples of Optimization on Manifolds}
-  \textcolor{red}{I will take two from the book.}
+\begin{frame}{Embedded Submanifolds of a Linear Space}
+    
 \end{frame}
+
+
+
+\begin{frame}{Examples of Optimization on Manifolds: Sphere}
+  Let $A\in \mathbb R^{n\times n}$ be a symmetric matrix where $A^\top = A$. By the spectral theorem, $A$ will admit $n$ real eigen-values $\lambda_1
+  \leq...\le\lambda_n$ and corresponding real, orthonormal eigenvectors $v_1,...,v_n \in \mathbb R^n$.
+
+  Now let $\mathbb R^n_*$ denote the set of nonzero vectors in $\mathbb R^n$, or we can say that it is an open submanifold of $\mathbb R^n$. Then we have the Rayleigh quotient 
+  \begin{align*}
+      r: \mathbb R^n_* \to \mathbb R: x\mapsto r(x) = \frac{\langle x, Ax\rangle}{\langle x, x\rangle},
+  \end{align*}
+  attains its extreme values when x is aligned with $\pm v_1$ or $\pm v_n$, and that the corresponding value of the quotient is $\lambda_1$ or $\lambda_n$. Now we are interested in the smallest eigen-value $\lambda_1$, or we prefer to solve the following optimization problem:
+  \begin{align*}
+      \min_{x\in \mathbb R^n_*} \frac{\langle x, Ax\rangle}{\langle x, x\rangle}.
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Examples of Optimization on Manifolds: Sphere}
+    Since the Rayleigh quotient is invariant to scaling, that is, since $r(\alpha x) = r(x)$ for all nonzero real $\alpha$, we can restrict attention to unit vectors without loss of generality, turning the problem into optimization over the unit sphere in $\mathbb R^n$:
+    \begin{align*}
+        S^{n-1} = \{x\in \mathbb R^n: \|x\| = 1\}.
+    \end{align*}
+    This is an embedded submanifold of $\mathbb R^n$. Our problem becomes:
+    \begin{align*}
+        \min_{x\in S^{-1}} \langle x, Ax\rangle,
+    \end{align*}
+    which will not change the minimum.
+\end{frame}
+
+\begin{frame}{Examples of Optimization on Manifolds: Stiefel manifold}
+    Let $X \in \mathbb{R}^{m \times n}$ be a data matrix whose columns are centered data points.
+We consider the problem of finding a $k$-dimensional subspace that maximizes the projected variance.
+
+This can be formulated as the optimization problem
+\begin{align*}
+\max_{U \in \mathbb{R}^{n \times k}} \; \mathrm{tr}(U^\top X^\top X U)
+\quad \text{subject to} \quad
+U^\top U = I_k.
+\end{align*}
+
+The constraint $U^\top U = I_k$ defines the \emph{Stiefel manifold}
+\begin{align*}
+\mathrm{St}(k,n) = \{ U \in \mathbb{R}^{n \times k} : U^\top U = I_k \}.
+\end{align*}
+
+Thus, the problem becomes an optimization problem on the Stiefel manifold:
+\begin{align*}
+\max_{U \in \mathrm{St}(k,n)} \; \mathrm{tr}(U^\top X^\top X U).
+\end{align*}
+
+The optimal solution is given by the matrix $U$ whose columns are the eigenvectors
+corresponding to the $k$ largest eigenvalues of $X^\top X$.
+
+\end{frame}
+
+% \begin{frame}{Examples of Optimization on Manifolds}
+    
+% \end{frame} 
